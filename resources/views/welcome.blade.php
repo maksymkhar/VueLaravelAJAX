@@ -12,25 +12,26 @@
 
         <div class="container">
 
+            <tasks list="{{ $tasks  }}"></tasks>
+
+        </div>
+
+        <template id="tasks-template">
+
             <h1>My Tasks</h1>
 
             <ul class="list-group">
 
-                @foreach($tasks as $task)
+                    <li class="list-group-item" v-for="task in list">
 
-                    <li class="list-group-item">
-
-                        {{$task->body}}
+                        @{{ task.body }}
 
                     </li>
-
-                @endforeach
-
 
             </ul>
 
 
-        </div>
+        </template>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
         <script src="/js/main.js"></script>
