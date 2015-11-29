@@ -5,9 +5,32 @@
 Vue.component('tasks', {
 
     template: '#tasks-template',
-    props: ['list'],
-    created() {
-        this.list = JSON.parse(this.list);
+
+    data: function()
+    {
+        return {
+            list: []
+        };
+    },
+
+    created: function()
+    {
+        this.fetchTaskList();
+    },
+
+    methods: {
+        fetchTaskList: function()
+        {
+            $.getJSON('api/tasks', function(tasks) {
+
+                this.list = tasks;
+
+            }.bind(this));
+        },
+        delete: function(task)
+        {
+            this.list.$remove(task);
+        }
     }
 });
 

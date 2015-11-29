@@ -12,7 +12,7 @@
 
         <div class="container">
 
-            <tasks list="{{ $tasks  }}"></tasks>
+            <tasks></tasks>
 
         </div>
 
@@ -23,8 +23,9 @@
             <ul class="list-group">
 
                     <li class="list-group-item" v-for="task in list">
-
                         @{{ task.body }}
+
+                        <strong @click="delete(task)">X</strong>
 
                     </li>
 
@@ -33,6 +34,7 @@
 
         </template>
 
+        <script src="http://code.jquery.com/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
         <script src="/js/main.js"></script>
 
